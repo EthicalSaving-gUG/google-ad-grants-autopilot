@@ -1,0 +1,50 @@
+{
+  "schema": "ethical-saving/google-ad-grants-audit/v1",
+  "snapshot_date": "2026-08-14",
+  "window_days": 30,
+  "account": {
+    "account_kind": "AD_GRANTS",
+    "currency": "EUR"
+  },
+  "conversion_actions": [
+    {
+      "name": "donation_complete",
+      "status": "ENABLED",
+      "primary": true,
+      "mission_relevant": true,
+      "conversions": 4,
+      "attributed_clicks": 25
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "DE | Donation Research",
+      "status": "ENABLED",
+      "type": "SEARCH",
+      "enabled_ad_groups": 2,
+      "bidding_strategy": "MAXIMIZE_CONVERSIONS",
+      "impressions": 120,
+      "clicks": 14,
+      "conversions": 2,
+      "search_rank_lost_impression_share": 0.35,
+      "search_budget_lost_impression_share": 0.0,
+      "ads": [
+        {
+          "status": "ENABLED",
+          "strength": "GOOD",
+          "final_url": "https://example.org/donate/"
+        }
+      ]
+    },
+    {
+      "name": "Global | Donation PMax",
+      "status": "ENABLED",
+      "type": "PERFORMANCE_MAX",
+      "bidding_strategy": "MAXIMIZE_CONVERSIONS",
+      "impressions": 80,
+      "clicks": 5,
+      "conversions": 1,
+      "ads": []
+    }
+  ]
+}
