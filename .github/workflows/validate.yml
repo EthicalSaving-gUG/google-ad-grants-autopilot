@@ -1,0 +1,28 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Compile scripts
+        run: python -m py_compile scripts/*.py
+      - name: Validate clean audit fixture
+        run: python scripts/audit_snapshot.py references/audit.example.json
+      - name: Confirm broken audit fixture is blocked
+        run: |
+          if python scripts/audit_snapshot.py references/audit.problem.example.json --fail-on CRITICAL; then
+            echo "Expected the problem fixture to fail"
+            exit 1
+          fi
+      - name: Validate example plan
+        run: python scripts/ad_grants_plan.py references/plan.example.json
+      - name: Dry-run write runner
+        run: python scripts/google_ads_apply.py --plan references/plan.example.json
