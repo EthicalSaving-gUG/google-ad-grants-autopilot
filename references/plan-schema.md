@@ -79,6 +79,18 @@ The budget above is an **example only**. Resolve the live Ad Grants allowance in
 }
 ```
 
+### Pause or enable an ad
+
+```json
+{
+  "type": "ad_status",
+  "ad_group_id": "1234567890",
+  "ad_id": "9876543210",
+  "status": "PAUSED",
+  "reason": "Pause the superseded RSA after its replacement is verified and eligible to serve."
+}
+```
+
 ### Responsive Search Ad
 
 ```json
