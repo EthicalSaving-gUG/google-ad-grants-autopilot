@@ -1,0 +1,3 @@
+# Required only for live Google Ads API mutations.
+# Install the current Google-supported release and re-check API compatibility at runtime.
+google-ads
