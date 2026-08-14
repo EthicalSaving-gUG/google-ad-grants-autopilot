@@ -46,7 +46,7 @@ That means donations, qualified contacts, applications, research engagement or o
 
 - create/pause Search campaigns and ad groups
 - create/pause keywords and negative keywords
-- create Responsive Search Ads
+- create Responsive Search Ads and pause superseded ads
 - update campaign budgets
 - add geo/language targeting
 - create and attach sitelinks and callouts
@@ -335,6 +335,7 @@ campaign_status
 campaign_budget_set
 ad_group_create
 ad_group_status
+ad_status
 keyword_create
 negative_keyword_create
 keyword_status
