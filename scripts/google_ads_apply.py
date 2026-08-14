@@ -57,6 +57,10 @@ def ad_group_resource(customer_id: str, ad_group_id: str) -> str:
     return f"customers/{customer_id}/adGroups/{ad_group_id}"
 
 
+def ad_group_ad_resource(customer_id: str, ad_group_id: str, ad_id: str) -> str:
+    return f"customers/{customer_id}/adGroupAds/{ad_group_id}~{ad_id}"
+
+
 def apply_one(client, customer_id: str, op: dict[str, Any]) -> str:
     typ = op["type"]
 
@@ -182,6 +186,18 @@ def apply_one(client, customer_id: str, op: dict[str, Any]) -> str:
         item.status = enum(client, "AdGroupCriterionStatusEnum", op["status"])
         operation.update_mask.paths.append("status")
         resp = service.mutate_ad_group_criteria(customer_id=customer_id, operations=[operation])
+        return resp.results[0].resource_name
+
+    if typ == "ad_status":
+        service = client.get_service("AdGroupAdService")
+        operation = client.get_type("AdGroupAdOperation")
+        item = operation.update
+        item.resource_name = ad_group_ad_resource(
+            customer_id, str(op["ad_group_id"]), str(op["ad_id"])
+        )
+        item.status = enum(client, "AdGroupAdStatusEnum", op["status"])
+        operation.update_mask.paths.append("status")
+        resp = service.mutate_ad_group_ads(customer_id=customer_id, operations=[operation])
         return resp.results[0].resource_name
 
     if typ == "rsa_create":
