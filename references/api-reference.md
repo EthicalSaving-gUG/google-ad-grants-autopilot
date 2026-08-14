@@ -57,6 +57,7 @@ The journal contains operation type, reason, result/resource name, timestamp and
 | `campaign_budget_set` | `CampaignBudgetService` |
 | `ad_group_create` | `AdGroupService` |
 | `ad_group_status` | `AdGroupService` |
+| `ad_status` | `AdGroupAdService` |
 | `keyword_create` | `AdGroupCriterionService` |
 | `negative_keyword_create` | `AdGroupCriterionService` |
 | `keyword_status` | `AdGroupCriterionService` |
