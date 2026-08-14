@@ -1,0 +1,27 @@
+{
+  "schema": "ethical-saving/google-ad-grants-plan/v1",
+  "account": {
+    "customer_id": "1234567890",
+    "account_kind": "AD_GRANTS",
+    "verified_ad_grants": true,
+    "conversion_health": "VERIFIED",
+    "currency_code": "EUR",
+    "allowed_domains": ["example.org"]
+  },
+  "operations": [
+    {
+      "type": "keyword_create",
+      "ad_group_id": "1234567890",
+      "text": "medical research donation",
+      "match_type": "PHRASE",
+      "reason": "Add a high-intent, mission-relevant multi-word term."
+    },
+    {
+      "type": "negative_keyword_create",
+      "ad_group_id": "1234567890",
+      "text": "jobs",
+      "match_type": "EXACT",
+      "reason": "Exclude employment intent from a donation ad group."
+    }
+  ]
+}
