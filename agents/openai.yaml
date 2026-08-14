@@ -1,0 +1,3 @@
+interface:
+  display_name: "Google Ad Grants Autopilot"
+  short_description: "Autonomously optimize nonprofit Google Ad Grants campaigns"
