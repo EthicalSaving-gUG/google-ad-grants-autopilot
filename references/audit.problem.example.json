@@ -1,0 +1,33 @@
+{
+  "schema": "ethical-saving/google-ad-grants-audit/v1",
+  "snapshot_date": "2026-08-14",
+  "window_days": 30,
+  "account": {"account_kind": "AD_GRANTS", "currency": "EUR"},
+  "conversion_actions": [
+    {
+      "name": "legacy_page_view",
+      "status": "ENABLED",
+      "primary": true,
+      "mission_relevant": false,
+      "conversions": 3,
+      "attributed_clicks": 0
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "Example Search",
+      "status": "ENABLED",
+      "type": "SEARCH",
+      "enabled_ad_groups": 1,
+      "bidding_strategy": "MAXIMIZE_CONVERSIONS",
+      "impressions": 0,
+      "clicks": 0,
+      "conversions": 0,
+      "search_rank_lost_impression_share": 0.90,
+      "search_budget_lost_impression_share": 0.0,
+      "ads": [
+        {"status": "ENABLED", "strength": "POOR", "final_url": "http://example.org/"}
+      ]
+    }
+  ]
+}
