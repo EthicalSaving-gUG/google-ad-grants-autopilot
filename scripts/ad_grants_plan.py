@@ -14,7 +14,7 @@ ALLOWED_MATCH_TYPES = {"EXACT", "PHRASE", "BROAD"}
 SMART_BIDDING = {"MAXIMIZE_CONVERSIONS", "MAXIMIZE_CONVERSION_VALUE", "TARGET_CPA", "TARGET_ROAS"}
 WRITE_TYPES = {
     "campaign_create", "campaign_status", "campaign_budget_set",
-    "ad_group_create", "ad_group_status", "keyword_create",
+    "ad_group_create", "ad_group_status", "ad_status", "keyword_create",
     "negative_keyword_create", "keyword_status", "rsa_create",
     "sitelink_create_attach", "callout_create_attach",
     "image_asset_create_attach", "location_target_add",
@@ -102,6 +102,12 @@ def validate_plan(plan: dict[str, Any]) -> list[str]:
 
         elif typ == "ad_group_status":
             require(op, "ad_group_id", where, errors)
+            if op.get("status") not in {"ENABLED", "PAUSED"}:
+                errors.append(f"{where}: status must be ENABLED or PAUSED")
+
+        elif typ == "ad_status":
+            require(op, "ad_group_id", where, errors)
+            require(op, "ad_id", where, errors)
             if op.get("status") not in {"ENABLED", "PAUSED"}:
                 errors.append(f"{where}: status must be ENABLED or PAUSED")
 
